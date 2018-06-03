@@ -30,7 +30,7 @@ def unicode_to_ascii(s):
 # Read a file and split into lines
 def read_lines(filename):
     lines = open(filename, encoding='utf-8').read().strip().split('\n')
-    return [unicode_to_ascii(line) for line in lines]
+    return [unicode_to_ascii(line).lower() for line in lines]
 
 
 # Find letter index from all_letters, e.g. "a" = 0

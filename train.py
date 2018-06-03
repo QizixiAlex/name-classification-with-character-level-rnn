@@ -10,7 +10,7 @@ from model import RNN
 
 # parameters
 n_hidden = 128
-epochs = 10
+epochs = 100
 plot_every = 1000
 test_dataset_size = 100
 
@@ -67,6 +67,9 @@ for epoch in range(epochs):
             all_loss.append(float(current_loss)/plot_every)
             current_loss = 0
             rnn = rnn.train()
+    # save model
+    torch.save(rnn, 'saved_model/char-rnn-classification.pt')
+    print("epoch: ", str(epoch))
 
 # plot all loss
 plt.figure(0)
@@ -74,5 +77,3 @@ plt.plot(all_loss)
 plt.figure(1)
 plt.plot(all_correct)
 plt.show()
-# save model
-torch.save(rnn, 'saved_model/char-rnn-classification.pt')

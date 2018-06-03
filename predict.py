@@ -30,4 +30,4 @@ def predict(name, n_predictions=3):
 
 
 if __name__ == '__main__':
-    predict(sys.argv[1])
+    predict(str(sys.argv[1]).lower())
